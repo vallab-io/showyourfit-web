@@ -120,7 +120,7 @@ export default function Home() {
                 aria-label="Get it on Google Play"
               >
                 <Image
-                  src="/store-badges/google-play-badge.png"
+                  src="/store-badges/google-play.png"
                   width={564}
                   height={168}
                   alt="Get it on Google Play"
