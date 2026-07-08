@@ -4,7 +4,7 @@ import "./globals.css";
 const title = "Show Your Fit";
 const description =
   "WOD 정리, 운동 기록, 인증샷 공유까지 가장 깔끔하게 남기는 와드 기록 앱.";
-const fallbackSiteUrl = "https://showyourfit.vercel.app";
+const fallbackSiteUrl = "https://www.showyour.fit";
 
 function getMetadataBase() {
   try {

@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const supportEmail =
-  process.env.NEXT_PUBLIC_SUPPORT_EMAIL?.trim() ?? "support@showyour.fit";
+  process.env.NEXT_PUBLIC_SUPPORT_EMAIL?.trim() ?? "jihoi.kang@vallab.io";
 
 export const metadata: Metadata = {
   title: "개인정보처리방침 | Show Your Fit",

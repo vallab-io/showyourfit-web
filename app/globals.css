@@ -233,6 +233,50 @@ a {
   line-height: 1.64;
 }
 
+.contact-section {
+  border-top: 1px solid var(--line);
+}
+
+.contact-card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  max-width: 720px;
+  margin: 40px auto 0;
+}
+
+.contact-link {
+  display: inline-flex;
+  min-height: 52px;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 0 18px;
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  background: white;
+  color: var(--text);
+  font-size: 0.96rem;
+  font-weight: 900;
+  box-shadow: 0 12px 30px rgb(17 24 39 / 4%);
+  transition:
+    background 160ms ease,
+    border-color 160ms ease,
+    transform 160ms ease;
+}
+
+.contact-link:hover {
+  border-color: var(--text);
+  transform: translateY(-1px);
+}
+
+.contact-link-primary {
+  border-color: var(--navy);
+  background: var(--navy);
+  color: white;
+}
+
 .download-band {
   display: flex;
   flex-direction: column;
@@ -487,6 +531,14 @@ a {
 
   .feature-card {
     min-height: auto;
+  }
+
+  .contact-card {
+    margin-top: 32px;
+  }
+
+  .contact-link {
+    width: 100%;
   }
 
   .download-band {

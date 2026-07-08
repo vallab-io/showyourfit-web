@@ -3,6 +3,8 @@ import appIcon from "../public/app-icon.png";
 import {
   Camera,
   Dumbbell,
+  Instagram,
+  Mail,
   PenLine,
   Share2,
   Sparkles,
@@ -11,6 +13,7 @@ import {
 const PLAY_STORE_URL =
   "https://play.google.com/store/apps/details?id=io.vallab.showyourfit.demo";
 const APP_STORE_URL = "https://apps.apple.com/app/show-your-fit/id0000000000";
+const CONTACT_EMAIL = process.env.NEXT_PUBLIC_SUPPORT_EMAIL?.trim() ?? "jihoi.kang@vallab.io";
 
 const features = [
   {
@@ -59,10 +62,8 @@ export default function Home() {
   );
   const instagramUrl = getPublicUrl(
     process.env.NEXT_PUBLIC_INSTAGRAM_URL,
-    "https://www.instagram.com/showyourfit",
+    "https://www.instagram.com/showyour.fit",
   );
-  const supportEmail =
-    process.env.NEXT_PUBLIC_SUPPORT_EMAIL?.trim() ?? "support@showyour.fit";
 
   return (
     <>
@@ -80,6 +81,7 @@ export default function Home() {
         </a>
         <nav className="site-nav" aria-label="주요 메뉴">
           <a href="#features">기능</a>
+          <a href="#contact">문의</a>
           <a href={instagramUrl} target="_blank" rel="noreferrer">
             Instagram
           </a>
@@ -153,13 +155,36 @@ export default function Home() {
             })}
           </div>
         </section>
+
+        <section
+          className="section contact-section"
+          id="contact"
+          aria-labelledby="contact-title"
+        >
+          <div className="section-heading">
+            <p className="section-kicker">Contact</p>
+            <h2 id="contact-title">문의사항이 있으신가요?</h2>
+            <p>
+              크로스핏 박스, 브랜드 협업, 이벤트 제휴를 편하게 남겨주세요.
+            </p>
+          </div>
+          <div className="contact-card">
+            <a
+              className="contact-link contact-link-primary"
+              href={`mailto:${CONTACT_EMAIL}`}
+            >
+              <Mail size={18} aria-hidden="true" />
+              이메일 문의하기
+            </a>
+          </div>
+        </section>
       </main>
 
       <footer className="site-footer">
         <span>© 2026 Show Your Fit</span>
         <nav aria-label="푸터 메뉴">
           <a href="/privacy">개인정보처리방침</a>
-          <a href={`mailto:${supportEmail}`}>문의하기</a>
+          <a href={`mailto:${CONTACT_EMAIL}`}>문의하기</a>
         </nav>
       </footer>
     </>
