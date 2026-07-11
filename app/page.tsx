@@ -3,7 +3,6 @@ import appIcon from "../public/app-icon.png";
 import {
   Camera,
   Dumbbell,
-  Instagram,
   Mail,
   PenLine,
   Share2,
@@ -48,6 +47,36 @@ function getPublicUrl(value: string | undefined, fallback: string) {
   } catch {
     return fallback;
   }
+}
+
+function GooglePlayMark() {
+  return (
+    <svg
+      aria-hidden="true"
+      className="store-button-icon google-play-icon"
+      viewBox="0 0 64 64"
+    >
+      <path d="M13 8.5v47l24-23.5z" fill="#00a0ff" />
+      <path d="M13 8.5 44.5 26 37 32z" fill="#00c853" />
+      <path d="M37 32 44.5 38 13 55.5z" fill="#ff3d00" />
+      <path d="M44.5 26 55 32 44.5 38 37 32z" fill="#ffd600" />
+    </svg>
+  );
+}
+
+function AppleMark() {
+  return (
+    <svg
+      aria-hidden="true"
+      className="store-button-icon apple-icon"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.53 4.08ZM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
 }
 
 export default function Home() {
@@ -103,31 +132,20 @@ export default function Home() {
             </p>
             <div className="store-actions hero-store-actions" aria-label="앱 다운로드">
               <a
-                className="store-badge-link"
-                href={iosUrl}
-                aria-label="Download on the App Store"
+                className="store-button store-button-google"
+                href={androidUrl}
+                aria-label="Google Play에서 다운로드"
               >
-                <Image
-                  src="/store-badges/app-store.svg"
-                  width={180}
-                  height={60}
-                  alt="Download on the App Store"
-                  className="store-badge-image app-store-badge"
-                  unoptimized
-                />
+                <GooglePlayMark />
+                <span>Google Play</span>
               </a>
               <a
-                className="store-badge-link"
-                href={androidUrl}
-                aria-label="Get it on Google Play"
+                className="store-button store-button-apple"
+                href={iosUrl}
+                aria-label="App Store에서 다운로드"
               >
-                <Image
-                  src="/store-badges/google-play.png"
-                  width={564}
-                  height={168}
-                  alt="Get it on Google Play"
-                  className="store-badge-image google-play-badge"
-                />
+                <AppleMark />
+                <span>App Store</span>
               </a>
             </div>
           </div>

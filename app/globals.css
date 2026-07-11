@@ -291,6 +291,9 @@ a {
 }
 
 .store-actions {
+  --store-button-height: 58px;
+  --store-button-width: 196px;
+
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -302,35 +305,53 @@ a {
   margin-top: 38px;
 }
 
-.store-badge-link {
+.store-button {
   display: inline-flex;
+  width: var(--store-button-width);
+  height: var(--store-button-height);
   align-items: center;
   justify-content: center;
-  height: 52px;
-  border-radius: 8px;
-  line-height: 0;
+  gap: 14px;
+  border: 0;
+  border-radius: 18px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0;
+  box-shadow: 0 16px 36px rgb(17 24 39 / 8%);
   transition:
-    filter 160ms ease,
+    box-shadow 160ms ease,
     transform 160ms ease;
 }
 
-.store-badge-link:hover {
-  filter: brightness(0.96);
+.store-button:hover {
+  box-shadow: 0 18px 42px rgb(17 24 39 / 13%);
   transform: translateY(-1px);
 }
 
-.store-badge-image {
+.store-button-google {
+  background: #ffffff;
+  color: #050706;
+}
+
+.store-button-apple {
+  background: rgb(0 0 0 / 80%);
+  color: #ffffff;
+}
+
+.store-button-icon {
   display: block;
-  width: auto;
-  object-fit: contain;
+  flex: 0 0 auto;
 }
 
-.app-store-badge {
-  height: 52px;
+.google-play-icon {
+  width: 36px;
+  height: 36px;
 }
 
-.google-play-badge {
-  height: 52px;
+.apple-icon {
+  width: 38px;
+  height: 38px;
 }
 
 .site-footer {
@@ -513,11 +534,12 @@ a {
   .hero-store-actions {
     display: grid;
     grid-template-columns: 1fr;
+    justify-items: center;
     width: 100%;
   }
 
-  .hero-store-actions .store-badge-link {
-    width: 100%;
+  .hero-store-actions .store-button {
+    width: min(100%, 320px);
   }
 
   .section,
@@ -549,8 +571,8 @@ a {
     width: 100%;
   }
 
-  .store-badge-link {
-    width: 100%;
+  .store-button {
+    width: min(100%, 320px);
   }
 
   .site-footer {
