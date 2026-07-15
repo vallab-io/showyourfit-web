@@ -2,7 +2,6 @@ import Image from "next/image";
 import appIcon from "../public/app-icon.png";
 import {
   Camera,
-  Dumbbell,
   Mail,
   PenLine,
   Share2,
@@ -10,8 +9,8 @@ import {
 } from "lucide-react";
 
 const PLAY_STORE_URL =
-  "https://play.google.com/store/apps/details?id=io.vallab.showyourfit.demo";
-const APP_STORE_URL = "https://apps.apple.com/app/show-your-fit/id0000000000";
+  "https://play.google.com/store/apps/details?id=io.vallab.showyourfit";
+const APP_STORE_URL = "https://apps.apple.com/app/show-your-fit/id6790261756";
 const CONTACT_EMAIL = process.env.NEXT_PUBLIC_SUPPORT_EMAIL?.trim() ?? "jihoi.kang@vallab.io";
 
 const features = [
@@ -106,7 +105,7 @@ export default function Home() {
             className="brand-icon"
             priority
           />
-          <span>Show Your Fit</span>
+          <span>showyour.fit</span>
         </a>
         <nav className="site-nav" aria-label="주요 메뉴">
           <a href="#features">기능</a>
@@ -120,10 +119,6 @@ export default function Home() {
       <main id="top">
         <section className="hero" aria-labelledby="hero-title">
           <div className="hero-content">
-            <p className="eyebrow">
-              <Dumbbell size={17} aria-hidden="true" />
-              Show Your Fit
-            </p>
             <h1 id="hero-title">가장 예쁜 와드<br />인증샷 앱</h1>
             <p className="hero-copy">
               와드 기록을 남기고, 인증샷까지 완성하세요.

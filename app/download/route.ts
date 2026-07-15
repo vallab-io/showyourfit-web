@@ -1,8 +1,8 @@
 import { NextResponse, type NextRequest } from "next/server";
 
 const FALLBACK_ANDROID_URL =
-  "https://play.google.com/store/apps/details?id=io.vallab.showyourfit.demo";
-const FALLBACK_IOS_URL = "https://apps.apple.com/app/show-your-fit/id0000000000";
+  "https://play.google.com/store/apps/details?id=io.vallab.showyourfit";
+const FALLBACK_IOS_URL = "https://apps.apple.com/app/show-your-fit/id6790261756";
 
 function validUrl(value: string | undefined, fallback: string) {
   if (!value) {

@@ -21,10 +21,12 @@ export const metadata: Metadata = {
   applicationName: title,
   keywords: [
     "Show Your Fit",
+    "showyour.fit",
     "운동 기록",
     "와드",
+    "wod",
     "크로스핏",
-    "피트니스",
+    "crossfit",
     "운동 인증샷",
   ],
   openGraph: {
