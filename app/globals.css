@@ -1,11 +1,12 @@
 :root {
-  --ink: #101828;
-  --muted: #667085;
-  --paper: #f6f8fb;
-  --line: #e4e7ec;
-  --navy: #142b4d;
-  --navy-deep: #07131f;
-  --blue: #2563eb;
+  --ink: #1d1d1f;
+  --muted: #6e6e73;
+  --paper: #fbfbfd;
+  --soft: #f5f5f7;
+  --surface: #ffffff;
+  --line: #d2d2d7;
+  --navy: #1d3557;
+  --blue: #0071e3;
   --cyan: #0f766e;
   --coral: #e11d48;
 }
@@ -48,10 +49,10 @@ a {
   gap: 24px;
   width: 100%;
   margin: 0;
-  padding: 18px max(24px, calc((100vw - 1180px) / 2 + 24px));
-  border-bottom: 1px solid rgb(228 231 236 / 72%);
-  background: rgb(255 255 255 / 86%);
-  backdrop-filter: blur(18px);
+  padding: 14px max(24px, calc((100vw - 1180px) / 2 + 24px));
+  border-bottom: 1px solid rgb(0 0 0 / 8%);
+  background: rgb(251 251 253 / 82%);
+  backdrop-filter: saturate(180%) blur(20px);
 }
 
 .brand {
@@ -60,45 +61,45 @@ a {
   gap: 11px;
   color: var(--ink);
   font-size: 1rem;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .brand-icon {
   border-radius: 8px;
-  box-shadow: 0 10px 24px rgb(16 24 40 / 14%);
+  box-shadow: 0 8px 22px rgb(0 0 0 / 10%);
 }
 
 .site-nav {
   display: flex;
   align-items: center;
-  gap: 4px;
-  padding: 5px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  background: white;
-  box-shadow: 0 12px 28px rgb(16 24 40 / 6%);
+  gap: 22px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
 }
 
 .site-nav a {
-  padding: 9px 13px;
-  border-radius: 999px;
-  color: #475467;
-  font-size: 0.9rem;
-  font-weight: 700;
+  padding: 8px 0;
+  color: #424245;
+  font-size: 0.86rem;
+  font-weight: 500;
 }
 
 .site-nav a:hover {
-  background: #f2f4f7;
+  background: transparent;
   color: var(--ink);
 }
 
 .hero {
   display: grid;
-  min-height: clamp(520px, 68svh, 680px);
+  min-height: clamp(560px, 70svh, 720px);
   place-items: center;
-  padding: 92px 24px 82px;
+  padding: 104px 24px 92px;
   border-bottom: 1px solid var(--line);
-  background: #f7faf8;
+  background:
+    radial-gradient(circle at 50% 0%, rgb(0 113 227 / 10%) 0, transparent 36%),
+    linear-gradient(180deg, #ffffff 0%, var(--paper) 54%, var(--soft) 100%);
 }
 
 .hero-content {
@@ -111,43 +112,34 @@ a {
   text-align: center;
 }
 
-.hero-logo-lockup {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  min-height: 60px;
-  color: #344054;
-  font-size: 1.02rem;
-  font-weight: 700;
-}
-
-.hero-logo {
+.hero-app-icon {
   border-radius: 8px;
-  box-shadow: 0 18px 44px rgb(16 24 40 / 14%);
+  box-shadow: 0 24px 60px rgb(0 0 0 / 14%);
 }
 
 .hero-kicker {
-  margin: 24px 0 0;
+  margin: 28px 0 0;
   color: var(--muted);
   font-size: 0.95rem;
-  font-weight: 800;
+  font-weight: 600;
 }
 
 .hero h1 {
   max-width: 720px;
-  margin: 16px 0 0;
+  margin: 14px 0 0;
   color: var(--ink);
   font-size: clamp(4.6rem, 10vw, 8.75rem);
   line-height: 0.9;
   letter-spacing: 0;
+  font-weight: 750;
 }
 
 .hero-copy {
   max-width: 640px;
   margin: 28px 0 0;
-  color: #475467;
+  color: var(--muted);
   font-size: clamp(1.08rem, 2vw, 1.34rem);
-  line-height: 1.72;
+  line-height: 1.58;
 }
 
 .store-actions {
@@ -178,19 +170,19 @@ a {
   font-weight: 500;
   line-height: 1;
   letter-spacing: 0;
-  box-shadow: 0 16px 36px rgb(0 0 0 / 18%);
+  box-shadow: 0 12px 30px rgb(0 0 0 / 10%);
   transition:
     box-shadow 160ms ease,
     transform 160ms ease;
 }
 
 .store-button:hover {
-  box-shadow: 0 18px 42px rgb(0 0 0 / 24%);
+  box-shadow: 0 16px 38px rgb(0 0 0 / 14%);
   transform: translateY(-1px);
 }
 
 .store-button-google {
-  background: #ffffff;
+  background: var(--surface);
   color: #050706;
 }
 
@@ -217,7 +209,7 @@ a {
 .section {
   max-width: 1180px;
   margin: 0 auto;
-  padding: 96px 24px;
+  padding: 108px 24px;
 }
 
 .section-heading {
@@ -233,7 +225,7 @@ a {
   margin: 0 0 18px;
   color: var(--muted);
   font-size: 0.86rem;
-  font-weight: 800;
+  font-weight: 600;
 }
 
 .section h2,
@@ -243,6 +235,7 @@ a {
   font-size: clamp(2.1rem, 4vw, 3.5rem);
   line-height: 1.08;
   letter-spacing: 0;
+  font-weight: 720;
 }
 
 .section-heading p,
@@ -250,23 +243,75 @@ a {
   margin: 18px 0 0;
   color: var(--muted);
   font-size: 1.06rem;
-  line-height: 1.72;
+  line-height: 1.66;
 }
 
 .highlight-grid {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 14px;
-  margin-top: 44px;
+  gap: 26px;
+  margin-top: 56px;
+  padding-bottom: 46px;
+}
+
+.highlight-grid::before {
+  position: absolute;
+  right: 0;
+  bottom: 13px;
+  left: 0;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgb(0 113 227 / 22%) 8%,
+    rgb(15 118 110 / 24%) 36%,
+    rgb(231 163 60 / 24%) 64%,
+    rgb(225 29 72 / 22%) 92%,
+    transparent 100%
+  );
+  content: "";
+}
+
+.highlight-grid::after {
+  position: absolute;
+  right: 0;
+  bottom: 13px;
+  left: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgb(255 255 255 / 72%) 12%,
+    rgb(255 255 255 / 72%) 88%,
+    transparent 100%
+  );
+  content: "";
 }
 
 .highlight-item {
-  min-height: 184px;
-  padding: 24px;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: white;
-  box-shadow: 0 14px 32px rgb(16 24 40 / 5%);
+  position: relative;
+  min-height: 160px;
+  background: transparent;
+  box-shadow: none;
+}
+
+.highlight-item::before {
+  position: absolute;
+  bottom: -39px;
+  left: 0;
+  z-index: 1;
+  width: 13px;
+  height: 13px;
+  border-radius: 999px;
+  border: 3px solid var(--paper);
+  background: var(--blue);
+  box-shadow:
+    0 0 0 1px rgb(0 113 227 / 24%),
+    0 8px 18px rgb(0 0 0 / 10%);
+  content: "";
+  transform: none;
 }
 
 .highlight-item svg {
@@ -277,12 +322,33 @@ a {
   color: var(--cyan);
 }
 
+.highlight-item:nth-child(2)::before {
+  background: var(--cyan);
+  box-shadow:
+    0 0 0 1px rgb(15 118 110 / 24%),
+    0 8px 18px rgb(0 0 0 / 10%);
+}
+
 .highlight-item:nth-child(3) svg {
   color: #e7a33c;
 }
 
+.highlight-item:nth-child(3)::before {
+  background: #e7a33c;
+  box-shadow:
+    0 0 0 1px rgb(231 163 60 / 28%),
+    0 8px 18px rgb(0 0 0 / 10%);
+}
+
 .highlight-item:nth-child(4) svg {
   color: var(--coral);
+}
+
+.highlight-item:nth-child(4)::before {
+  background: var(--coral);
+  box-shadow:
+    0 0 0 1px rgb(225 29 72 / 24%),
+    0 8px 18px rgb(0 0 0 / 10%);
 }
 
 .highlight-item h3 {
@@ -290,6 +356,7 @@ a {
   color: var(--ink);
   font-size: 1.05rem;
   line-height: 1.38;
+  font-weight: 680;
 }
 
 .highlight-item p {
@@ -306,8 +373,8 @@ a {
 .workflow-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px;
-  margin-top: 48px;
+  gap: 24px;
+  margin-top: 58px;
 }
 
 .workflow-item {
@@ -318,8 +385,8 @@ a {
   padding: 24px;
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: white;
-  box-shadow: 0 18px 44px rgb(16 24 40 / 6%);
+  background: var(--surface);
+  box-shadow: none;
 }
 
 .workflow-copy {
@@ -331,7 +398,7 @@ a {
 .workflow-index {
   color: #98a2b3;
   font-size: 0.86rem;
-  font-weight: 800;
+  font-weight: 600;
 }
 
 .workflow-label {
@@ -341,7 +408,7 @@ a {
   gap: 8px;
   color: var(--navy);
   font-size: 0.88rem;
-  font-weight: 800;
+  font-weight: 650;
 }
 
 .workflow-item h3 {
@@ -349,6 +416,7 @@ a {
   color: var(--ink);
   font-size: clamp(1.36rem, 2.6vw, 2rem);
   line-height: 1.18;
+  font-weight: 700;
 }
 
 .workflow-item p {
@@ -360,13 +428,15 @@ a {
 
 .workflow-media {
   display: flex;
-  height: 640px;
+  height: 620px;
   min-height: 0;
   align-items: flex-start;
   justify-content: center;
   overflow: hidden;
   border-radius: 8px;
-  background: #eef2f6;
+  border: 1px solid #e8e8ed;
+  background: var(--soft);
+  padding: 12px;
 }
 
 .workflow-image {
@@ -375,11 +445,13 @@ a {
   height: 100%;
   object-fit: contain;
   object-position: center top;
+  border-radius: 6px;
 }
 
 .contact-section {
-  background: var(--navy-deep);
-  color: white;
+  border-top: 1px solid var(--line);
+  background: var(--soft);
+  color: var(--ink);
 }
 
 .contact-inner {
@@ -393,16 +465,16 @@ a {
 }
 
 .contact-section .section-kicker {
-  color: rgb(255 255 255 / 64%);
+  color: var(--muted);
 }
 
 .contact-section h2 {
-  color: white;
+  color: var(--ink);
 }
 
 .contact-section p {
   max-width: 640px;
-  color: rgb(255 255 255 / 68%);
+  color: var(--muted);
 }
 
 .contact-actions {
@@ -421,27 +493,28 @@ a {
   gap: 9px;
   padding: 0 18px;
   border-radius: 8px;
-  background: rgb(255 255 255 / 10%);
-  color: white;
+  background: var(--surface);
+  color: var(--ink);
   font-size: 0.96rem;
-  font-weight: 700;
+  font-weight: 600;
+  box-shadow: 0 10px 26px rgb(0 0 0 / 6%);
   transition:
     background 160ms ease,
     transform 160ms ease;
 }
 
 .contact-link:hover {
-  background: rgb(255 255 255 / 16%);
+  background: #fdfdfd;
   transform: translateY(-1px);
 }
 
 .contact-link-primary {
-  background: white;
-  color: var(--ink);
+  background: var(--blue);
+  color: white;
 }
 
 .contact-link-primary:hover {
-  background: rgb(255 255 255 / 92%);
+  background: #0077ed;
 }
 
 .site-footer {
@@ -454,7 +527,7 @@ a {
   padding: 34px 24px;
   color: var(--muted);
   font-size: 0.95rem;
-  font-weight: 750;
+  font-weight: 500;
 }
 
 .site-footer nav {
@@ -575,9 +648,50 @@ a {
 }
 
 @media (max-width: 980px) {
-  .highlight-grid,
   .workflow-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .highlight-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+    margin-top: 48px;
+    padding-bottom: 0;
+  }
+
+  .highlight-grid::before {
+    top: 4px;
+    bottom: 0;
+    left: 6px;
+    width: 2px;
+    height: auto;
+    background: linear-gradient(
+      180deg,
+      rgb(0 113 227 / 24%) 0%,
+      rgb(15 118 110 / 24%) 34%,
+      rgb(231 163 60 / 24%) 66%,
+      rgb(225 29 72 / 22%) 100%
+    );
+  }
+
+  .highlight-grid::after {
+    display: none;
+  }
+
+  .highlight-item {
+    min-height: auto;
+    padding: 0 0 34px 36px;
+  }
+
+  .highlight-item:last-child {
+    padding-bottom: 0;
+  }
+
+  .highlight-item::before {
+    top: 4px;
+    bottom: auto;
+    left: 0;
+    transform: none;
   }
 
   .contact-inner {
@@ -600,7 +714,7 @@ a {
   }
 
   .site-nav {
-    gap: 2px;
+    gap: 12px;
   }
 
   .site-nav a {
@@ -613,18 +727,13 @@ a {
     padding: 64px 18px 54px;
   }
 
-  .hero-logo-lockup {
-    min-height: 50px;
-    font-size: 0.96rem;
-  }
-
-  .hero-logo {
-    width: 44px;
-    height: 44px;
+  .hero-app-icon {
+    width: 76px;
+    height: 76px;
   }
 
   .hero h1 {
-    font-size: clamp(3.6rem, 18vw, 5rem);
+    font-size: clamp(3.2rem, 15vw, 4.4rem);
   }
 
   .hero-copy {
@@ -646,13 +755,8 @@ a {
     padding: 70px 18px;
   }
 
-  .highlight-grid,
   .workflow-grid {
     grid-template-columns: 1fr;
-  }
-
-  .highlight-item {
-    min-height: auto;
   }
 
   .workflow-item {

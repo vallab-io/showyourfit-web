@@ -187,12 +187,20 @@ export default function Home() {
       <main id="top">
         <section className="hero" aria-labelledby="hero-title">
           <div className="hero-content">
-            <p className="hero-kicker">와드 기록 · 인증샷 · 공유</p>
+            <Image
+              src={appIcon}
+              width={96}
+              height={96}
+              alt=""
+              className="hero-app-icon"
+              priority
+            />
+            <p className="hero-kicker">가장 예쁜 와드 인증샷 앱</p>
             <h1 id="hero-title">Show Your Fit</h1>
             <p className="hero-copy">
-              와드 기록을 남기고, 인증샷까지 완성하세요.
+              와드를 기록하고, 사진 위에 자연스럽게 얹고,
               <br />
-              운동 순간을 가장 감각있게 보여주는 앱.
+              운동이 끝난 순간 바로 공유하세요.
             </p>
             <StoreButtons androidUrl={androidUrl} iosUrl={iosUrl} />
           </div>
