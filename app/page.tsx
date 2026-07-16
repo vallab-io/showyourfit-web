@@ -2,6 +2,7 @@ import Image from "next/image";
 import appIcon from "../public/app-icon.png";
 import {
   Camera,
+  Instagram,
   Mail,
   PenLine,
   Share2,
@@ -11,28 +12,68 @@ import {
 const PLAY_STORE_URL =
   "https://play.google.com/store/apps/details?id=io.vallab.showyourfit";
 const APP_STORE_URL = "https://apps.apple.com/app/show-your-fit/id6790261756";
-const CONTACT_EMAIL = process.env.NEXT_PUBLIC_SUPPORT_EMAIL?.trim() ?? "jihoi.kang@vallab.io";
+const CONTACT_EMAIL =
+  process.env.NEXT_PUBLIC_SUPPORT_EMAIL?.trim() ?? "jihoi.kang@vallab.io";
 
-const features = [
+const highlights = [
   {
     icon: Sparkles,
-    title: "와드는 자동으로",
-    description: "사진 한 장으로 깔끔하게 정리해줘요.",
+    title: "와드 사진 분석",
+    description: "화이트보드·와드 사진을 분석해서 정리해요.",
   },
   {
     icon: PenLine,
-    title: "기록은 빠르게",
-    description: "오운완 기록을 남겨요.",
+    title: "빠른 수정",
+    description: "분석된 내용에 필요한 부분만 간단하게 변경할 수 있어요.",
   },
   {
     icon: Camera,
-    title: "인증샷은 예쁘게",
-    description: "와드와 기록을 사진/영상 위에 자연스럽게 얹어요.",
+    title: "인증샷 템플릿",
+    description: "사진 위에 와드·기록을 자연스럽게 얹어요.",
   },
   {
     icon: Share2,
-    title: "공유는 바로",
-    description: "스토리로 가볍게 공유해요.",
+    title: "스토리 공유",
+    description: "완성된 인증샷을 바로 저장하고 공유해요.",
+  },
+];
+
+const workflow = [
+  {
+    icon: Sparkles,
+    label: "WOD",
+    title: "와드 사진 한 장으로 시작하세요.",
+    description:
+      "매번 직접 입력하지 않아도 AI가 사진을 분석해 운동 방식, 라운드, 동작을 채워줍니다.",
+    image: "/template/template_ai_wod.png",
+    alt: "와드 사진 분석 후 운동 정보를 확인하는 화면",
+  },
+  {
+    icon: PenLine,
+    label: "Edit",
+    title: "필요한 부분만 빠르게 수정하세요.",
+    description:
+      "동작, 반복 수, 단위처럼 기록에 필요한 값만 깔끔하게 확인하고 수정할 수 있어요.",
+    image: "/template/template_manual_add_wod.png",
+    alt: "와드 동작과 반복 수를 직접 수정하는 화면",
+  },
+  {
+    icon: Camera,
+    label: "Poster",
+    title: "바로 와드 인증샷이 됩니다.",
+    description:
+      "기록, 날짜, 동작 정보가 사진 위에 어울리도록 올라가서 인증샷이 더 보기 좋아집니다.",
+    image: "/template/template_overlay_variable_template.png",
+    alt: "운동 사진 위에 와드 기록이 얹힌 포스터 화면",
+  },
+  {
+    icon: Share2,
+    label: "Share",
+    title: "스토리까지 한 번에 공유하세요.",
+    description:
+      "저장과 공유 흐름을 짧게 만들어 운동이 끝난 순간을 바로 남길 수 있습니다.",
+    image: "/template/template_share_instagram_story.png",
+    alt: "인스타그램 스토리에 와드 인증샷을 공유하는 화면",
   },
 ];
 
@@ -78,6 +119,35 @@ function AppleMark() {
   );
 }
 
+function StoreButtons({
+  androidUrl,
+  iosUrl,
+}: {
+  androidUrl: string;
+  iosUrl: string;
+}) {
+  return (
+    <div className="store-actions" id="download" aria-label="앱 다운로드">
+      <a
+        className="store-button store-button-google"
+        href={androidUrl}
+        aria-label="Google Play에서 다운로드"
+      >
+        <GooglePlayMark />
+        <span>Google Play</span>
+      </a>
+      <a
+        className="store-button store-button-apple"
+        href={iosUrl}
+        aria-label="App Store에서 다운로드"
+      >
+        <AppleMark />
+        <span>App Store</span>
+      </a>
+    </div>
+  );
+}
+
 export default function Home() {
   const androidUrl = getPublicUrl(
     process.env.NEXT_PUBLIC_ANDROID_APP_URL ??
@@ -109,60 +179,43 @@ export default function Home() {
         </a>
         <nav className="site-nav" aria-label="주요 메뉴">
           <a href="#features">기능</a>
+          <a href="#download">다운로드</a>
           <a href="#contact">문의</a>
-          <a href={instagramUrl} target="_blank" rel="noreferrer">
-            Instagram
-          </a>
         </nav>
       </header>
 
       <main id="top">
         <section className="hero" aria-labelledby="hero-title">
           <div className="hero-content">
-            <h1 id="hero-title">가장 예쁜 와드<br />인증샷 앱</h1>
+            <p className="hero-kicker">와드 기록 · 인증샷 · 공유</p>
+            <h1 id="hero-title">Show Your Fit</h1>
             <p className="hero-copy">
               와드 기록을 남기고, 인증샷까지 완성하세요.
               <br />
-              운동 순간을 가장 깔끔하게 보여줍니다.
+              운동 순간을 가장 감각있게 보여주는 앱.
             </p>
-            <div className="store-actions hero-store-actions" aria-label="앱 다운로드">
-              <a
-                className="store-button store-button-google"
-                href={androidUrl}
-                aria-label="Google Play에서 다운로드"
-              >
-                <GooglePlayMark />
-                <span>Google Play</span>
-              </a>
-              <a
-                className="store-button store-button-apple"
-                href={iosUrl}
-                aria-label="App Store에서 다운로드"
-              >
-                <AppleMark />
-                <span>App Store</span>
-              </a>
-            </div>
+            <StoreButtons androidUrl={androidUrl} iosUrl={iosUrl} />
           </div>
         </section>
 
-        <section className="section" id="features" aria-labelledby="features-title">
+        <section className="section intro-section" aria-labelledby="intro-title">
           <div className="section-heading">
-            <p className="section-kicker">What it does</p>
-            <h2 id="features-title">10초 만에 와드 포스터를 남겨요.</h2>
+            <p className="section-kicker">WOD to Story</p>
+            <h2 id="intro-title">기록은 짧게, 인증샷은 더 예쁘게.</h2>
             <p>
-              복잡한 입력은 줄이고, 예쁘고 빠르게
+              Show Your Fit은 와드 입력부터 사진 템플릿, 저장과 공유까지 운동
+              후 남기는 순간을 하나의 흐름으로 정리합니다.
             </p>
           </div>
-          <div className="feature-grid">
-            {features.map((feature) => {
-              const Icon = feature.icon;
+          <div className="highlight-grid">
+            {highlights.map((item) => {
+              const Icon = item.icon;
 
               return (
-                <article className="feature-card" key={feature.title}>
-                  <Icon size={24} aria-hidden="true" />
-                  <h3>{feature.title}</h3>
-                  <p>{feature.description}</p>
+                <article className="highlight-item" key={item.title}>
+                  <Icon size={22} aria-hidden="true" />
+                  <h3>{item.title}</h3>
+                  <p>{item.description}</p>
                 </article>
               );
             })}
@@ -170,25 +223,83 @@ export default function Home() {
         </section>
 
         <section
-          className="section contact-section"
+          className="section workflow-section"
+          id="features"
+          aria-labelledby="features-title"
+        >
+          <div className="section-heading">
+            <p className="section-kicker">How it works</p>
+            <h2 id="features-title">운동이 끝난 뒤 10초면 충분해요.</h2>
+            <p>
+              사진을 고르고, 와드를 확인하고, 마음에 드는 템플릿으로 바로
+              공유하세요.
+            </p>
+          </div>
+          <div className="workflow-grid">
+            {workflow.map((item, index) => {
+              const Icon = item.icon;
+
+              return (
+                <article className="workflow-item" key={item.title}>
+                  <div className="workflow-copy">
+                    <span className="workflow-index">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <div className="workflow-label">
+                      <Icon size={18} aria-hidden="true" />
+                      {item.label}
+                    </div>
+                    <h3>{item.title}</h3>
+                    <p>{item.description}</p>
+                  </div>
+                  <div className="workflow-media">
+                    <Image
+                      src={item.image}
+                      width={1290}
+                      height={1896}
+                      alt={item.alt}
+                      className="workflow-image"
+                      sizes="(max-width: 720px) 92vw, (max-width: 1180px) 44vw, 520px"
+                    />
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        </section>
+
+        <section
+          className="contact-section"
           id="contact"
           aria-labelledby="contact-title"
         >
-          <div className="section-heading">
-            <p className="section-kicker">Contact</p>
-            <h2 id="contact-title">문의사항이 있으신가요?</h2>
-            <p>
-              크로스핏 박스, 브랜드 협업, 이벤트 제휴를 편하게 남겨주세요.
-            </p>
-          </div>
-          <div className="contact-card">
-            <a
-              className="contact-link contact-link-primary"
-              href={`mailto:${CONTACT_EMAIL}`}
-            >
-              <Mail size={18} aria-hidden="true" />
-              이메일 문의하기
-            </a>
+          <div className="contact-inner">
+            <div>
+              <p className="section-kicker">Contact</p>
+              <h2 id="contact-title">문의사항이 있으신가요?</h2>
+              <p>
+                크로스핏 박스, 브랜드 협업, 이벤트 제휴는 이메일이나 Instagram
+                DM으로 편하게 문의해주세요.
+              </p>
+            </div>
+            <div className="contact-actions">
+              <a
+                className="contact-link contact-link-primary"
+                href={`mailto:${CONTACT_EMAIL}`}
+              >
+                <Mail size={18} aria-hidden="true" />
+                이메일 문의하기
+              </a>
+              <a
+                className="contact-link"
+                href={instagramUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Instagram size={18} aria-hidden="true" />
+                Instagram DM
+              </a>
+            </div>
           </div>
         </section>
       </main>
