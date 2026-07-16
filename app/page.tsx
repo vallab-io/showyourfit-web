@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import appIcon from "../public/app-icon.png";
 import {
   Camera,
@@ -178,8 +179,8 @@ export default function Home() {
           <span>showyour.fit</span>
         </a>
         <nav className="site-nav" aria-label="주요 메뉴">
-          <a href="#features">기능</a>
-          <a href="#download">다운로드</a>
+          <a href="#overview">소개</a>
+          <a href="#how-it-works">사용 흐름</a>
           <a href="#contact">문의</a>
         </nav>
       </header>
@@ -206,7 +207,11 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="section intro-section" aria-labelledby="intro-title">
+        <section
+          className="section intro-section"
+          id="overview"
+          aria-labelledby="intro-title"
+        >
           <div className="section-heading">
             <p className="section-kicker">WOD to Story</p>
             <h2 id="intro-title">기록은 짧게, 인증샷은 더 예쁘게.</h2>
@@ -232,7 +237,7 @@ export default function Home() {
 
         <section
           className="section workflow-section"
-          id="features"
+          id="how-it-works"
           aria-labelledby="features-title"
         >
           <div className="section-heading">
@@ -315,8 +320,7 @@ export default function Home() {
       <footer className="site-footer">
         <span>© 2026 Show Your Fit</span>
         <nav aria-label="푸터 메뉴">
-          <a href="/privacy">개인정보처리방침</a>
-          <a href={`mailto:${CONTACT_EMAIL}`}>문의하기</a>
+          <Link href="/#contact">문의하기</Link>
         </nav>
       </footer>
     </>
