@@ -30,7 +30,7 @@ const highlights = [
   {
     icon: Camera,
     title: "인증샷 템플릿",
-    description: "사진 위에 와드·기록을 자연스럽게 얹어요.",
+    description: "사진 위에 와드·기록을 올려 인증샷을 완성해요.",
   },
   {
     icon: Share2,
