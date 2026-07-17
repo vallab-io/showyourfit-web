@@ -5,6 +5,7 @@ import {
   Camera,
   Instagram,
   Mail,
+  MessageCircle,
   PenLine,
   Share2,
   Sparkles,
@@ -13,6 +14,7 @@ import {
 const PLAY_STORE_URL =
   "https://play.google.com/store/apps/details?id=io.vallab.showyourfit";
 const APP_STORE_URL = "https://apps.apple.com/app/show-your-fit/id6790261756";
+const CONTACT_FORM_URL = "https://tally.so/r/VLAKdj";
 const CONTACT_EMAIL =
   process.env.NEXT_PUBLIC_SUPPORT_EMAIL?.trim() ?? "jihoi.kang@vallab.io";
 
@@ -287,17 +289,26 @@ export default function Home() {
           aria-labelledby="contact-title"
         >
           <div className="contact-inner">
-            <div>
+            <div className="contact-content">
               <p className="section-kicker">Contact</p>
               <h2 id="contact-title">문의사항이 있으신가요?</h2>
               <p>
-                크로스핏 박스, 브랜드 협업, 이벤트 제휴는 이메일이나 Instagram
-                DM으로 편하게 문의해주세요.
+                크로스핏 박스, 브랜드 협업, 이벤트 제휴는 문의 폼, 이메일,
+                인스타그램 DM으로 편하게 보내주세요.
               </p>
             </div>
             <div className="contact-actions">
               <a
                 className="contact-link contact-link-primary"
+                href={CONTACT_FORM_URL}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <MessageCircle size={18} aria-hidden="true" />
+                문의하기
+              </a>
+              <a
+                className="contact-link"
                 href={`mailto:${CONTACT_EMAIL}`}
               >
                 <Mail size={18} aria-hidden="true" />
@@ -310,7 +321,7 @@ export default function Home() {
                 rel="noreferrer"
               >
                 <Instagram size={18} aria-hidden="true" />
-                Instagram DM
+                인스타그램 DM
               </a>
             </div>
           </div>
