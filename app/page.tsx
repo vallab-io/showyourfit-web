@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import appIcon from "../public/app-icon.png";
@@ -17,6 +18,12 @@ const APP_STORE_URL = "https://apps.apple.com/app/show-your-fit/id6790261756";
 const CONTACT_FORM_URL = "https://tally.so/r/VLAKdj";
 const CONTACT_EMAIL =
   process.env.NEXT_PUBLIC_SUPPORT_EMAIL?.trim() ?? "jihoi.kang@vallab.io";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "/",
+  },
+};
 
 const highlights = [
   {

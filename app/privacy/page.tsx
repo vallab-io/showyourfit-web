@@ -9,6 +9,9 @@ export const metadata: Metadata = {
   title: "개인정보처리방침 | Show Your Fit",
   description:
     "Show Your Fit 앱에서 처리하는 개인정보, 이용 목적, 제3자 처리 위탁, 보관 기간 및 사용자 권리를 안내합니다.",
+  alternates: {
+    canonical: "/privacy",
+  },
 };
 
 const dataCategories = [
