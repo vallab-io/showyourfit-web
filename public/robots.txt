@@ -1,0 +1,7 @@
+User-agent: Google-adstxt
+Disallow:
+
+User-agent: *
+Allow: /
+
+Sitemap: https://www.showyour.fit/sitemap.xml
